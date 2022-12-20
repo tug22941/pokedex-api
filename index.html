@@ -9,20 +9,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div>
+            <select name="" id="ddlPokemons"></select>
+        </div>
+        <div>
+            <img src="Image/pokemon-logo.png" alt="">
+        </div>
+    </header>
     <main>
-        <div class="name-box">
-            <select name="" id="ddlPokemons">
-            </select>
+        <div class="page">
+            <div class="panel">
+                <div class="top">
+                    <p id="type">[Pokemon Type]</p>
+                </div>
+                <div class="middle">
+                    <div id="picture-box">
+                        <img src="Image/test-image.jpg" alt="" srcset="" id="imgPokePic">
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p id="lblAbility">ability</p>
+                    <p id="lblForm">form</p>
+                </div>
+            </div>
         </div>
-        <div class="picture-box">
-            <img src="testImage.jpg" alt="" srcset="" id="imgPokePic">
-        </div>
-        <div class="info-box">
-            <p id="lblAbility">ability</p>
-            <p id="lblForm">form</p>
+        <div class="page">
+            <div id="right-panel" class="panel">
+                <div class="top">Part1</div>
+                <div class="middle">Part2</div>
+                <div class="bottom">Part3</div>
+            </div>
         </div>
     </main>
-
+    <footer></footer>
     
     <script src="app.js"></script>
 </body>

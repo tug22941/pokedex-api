@@ -5,57 +5,119 @@
 }
 body{
     background-color: rgb(241, 196, 69);
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     text-align: center;
 }
+
+header{
+width: 100%;
+height: 15%;
+background-color: #FFFFFF;
+display: flex;
+flex-direction: row-reverse;
+}
+header>div{
+    height:100%;
+    width:50%;
+    display: inherit;
+    align-items: center;
+    justify-content: end;
+    overflow: hidden;
+}
+header> div:nth-child(1){
+    justify-content:center;
+}
+img {
+    width: 32%;
+    min-width: 150px;
+}
+select{
+    height: 50%;
+    width: 80%;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 3px;
+}
 main{
+    display:flex;
+    width:100%;
+    min-width: 700px;
+    height:77%;
+    justify-content: center;
+    align-items:center;
+}
+
+.page{
+    width:40%;
+    max-width:350px;
+    height: 100%;
+    display:flex;
+    align-items: end;
+}
+.page:nth-child(1){
+    justify-content: end;
+}
+.page:nth-child(2){
+    
+}
+
+.panel{
+    height:97%;
+    width:100%;
     border: 2px solid black;
-    width:80%;
-    height: 100vh;
+    background-color: #F6033F;
     display:flex;
     flex-direction: column;
 }
-main > div{
-    border:2px dotted red;
+#right-panel{
+    height:85%;
 }
-.name-box{
-    height:20%;
+.panel > div{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.name-box > select{
-    width: 30%;
+
+.top{
     height: 20%;
-    min-width: 150px;
-    min-height: 30px;
-    text-align: center;
+    background-color: aqua;
 }
-.picture-box{
-    height: 40%;
-    display: inherit;
+
+.middle{
+    height:50%;
+    background-color: #F6033F;
+}
+#picture-box{
+    width: 80%;
+    height: 90%;
+    border: 1px solid black;
+    background-color: #E4E4E4;
+    border-radius: 15px;
+    display:flex;
     justify-content: center;
+    align-items: center;
 }
-.picture-box > img{
-    width: 40%;
-}
-.info-box{
-    height: 40%;
-    display: inherit;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
+#picture-box > img{
+    width:90%;
+    height: 90%;
+    border:2px solid black;
+    background-color: black;
+    border-radius: 15px;
+
 }
 
-#info{
-    width:300px;
-    height: 300px;
+.bottom{
+    height: 30%;
+    background-color: lightgreen;
 }
 
-#info > img {
+footer{
     width: 100%;
-    height: 100%;
+    height: 8%;
+    background-color: #FFFFFF;
+    margin-top:1%;
 }
