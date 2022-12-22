@@ -100,11 +100,13 @@ main :nth-child(2) .panel{
 .top{
     height: 20%;
     justify-content: end;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 #types-box{
     width:80%;
-    height:60%;
+    height:50%;
     display: flex;
     flex-direction: row-reverse;
     align-self:flex-end;
@@ -116,8 +118,7 @@ main :nth-child(2) .panel{
     padding:3px;
     background: #FFFFFF;
     color:black;
-    border:2px solid black;
-    border-radius: 10px;
+    border:1px solid black;
 
 }
 
@@ -136,6 +137,7 @@ main :nth-child(2) .panel{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position:relative;
 }
 .pic{
     height:90%;
@@ -150,6 +152,13 @@ main :nth-child(2) .panel{
     height:89%;
     border:2px solid black;
     background-color: black;
+}
+.arrows{
+    font-size:250%;
+    color:#3068b3;
+    position: absolute;
+    top: 50%;
+    right:0;
 }
 .info{
     height:15%;
@@ -177,13 +186,15 @@ main :nth-child(2) .panel{
 .bottom{
     height: 30%;
     justify-content: center;
+    border-bottom-left-radius: 10px;
 }
 #description-box{
     width:70%;
     height: 90%;
     padding:8px;
     background-color: #003E31;
-    border-radius: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
     font-size:10px;
     display: flex;
     align-items: center;
@@ -195,23 +206,27 @@ main :nth-child(2) .panel > div{
 }
 main :nth-child(2) .panel > .top{
     height: 8.5%;
+    border-top-left-radius: 0px;
 }
 main :nth-child(2) .panel > .middle-top{
     height: 20%;
 }
 main :nth-child(2) .panel > .middle{
     height: 15%;
+    flex-direction: column;
 }
 main :nth-child(2) .panel > .bottom{
     height: 56.5%;
     border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0px;
 }
 
 .size-box{
     width: 80%;
     height: 80%;
     background-color: #003E31;
-    border-radius: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
 }
@@ -224,7 +239,6 @@ main :nth-child(2) .panel > .bottom{
 .wrap > div{
     width: 50%;
     height: 100%;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -244,12 +258,40 @@ main :nth-child(2) .panel > .bottom{
     text-decoration-thickness: 3px;
 }
 
+.middle > div{
+    height: 50%;
+    width: 100%;
+}
+.hp-value{
+    display:flex;
+    align-items: flex-end;
+}
+.hp-value > a {
+    margin-left:6%;
+}
+.health-wrap{
+    height: 50%;
+    width: 90%;
+    margin:auto;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+#health{
+    width: 0%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #9BCC50;
+}
+
 #poke-stats{
     width: 80%;
     height: 90%;
     background-color: #003E31;
-    border-radius: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
     font-size: 9px;
+    text-align: start;
 }
 #poke-stats > div{
     display: flex;
