@@ -47,7 +47,9 @@ const UIController = (function(){
         lblPokeNumber: '#poke-number',
         lblPokeWeight: '#poke-weight',
         lblPokeHeight: '#poke-height',
-        divPokeStats: '#poke-stats'
+        divPokeStats: '#poke-stats',
+        lblPokeHP: '#live-hp',
+        divPokeHPBar: '#health'
     }
 
     return{
@@ -63,6 +65,8 @@ const UIController = (function(){
                 pokeWeight: document.querySelector(DOMElements.lblPokeWeightr),
                 pokeHeight: document.querySelector(DOMElements.lblPokeHeight),
                 pokeStats: document.querySelector(DOMElements.divPokeStats),
+                pokeHPText: document.querySelector(DOMElements.lblPokeHP),
+                pokeHPBar: document.querySelector(DOMElements.lblPokeHPBar)
             }
         },
         addToPokeList(pokemon){
@@ -100,6 +104,12 @@ const UIController = (function(){
             })(pokemon.height);
             document.querySelector(DOMElements.lblPokeWeight).textContent = weight + " (lb) ";
             document.querySelector(DOMElements.lblPokeHeight).textContent = height + " (in) ";
+        },
+        loadPokeHP(pokemon){
+            const randHP = Math.floor(Math.random() * 100) + 1;
+            document.querySelector(DOMElements.lblPokeHP).textContent = "HP " + randHP;
+            document.querySelector(DOMElements.divPokeHPBar).style.width = randHP+"%";
+
         },
         clearPokeStats(){
             document.querySelector(DOMElements.divPokeStats).innerHTML = "";
@@ -148,7 +158,7 @@ const APPController = (function(APICtrl,UICtrl){
                 })
 
                 UICtrl.loadPokeSize(pokemon);
-
+                UICtrl.loadPokeHP(pokemon)
                 UICtrl.clearPokeStats();
                 UICtrl.loadPokeStats(pokemon);
             })
