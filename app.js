@@ -49,7 +49,9 @@ const UIController = (function(){
         lblPokeHeight: '#poke-height',
         divPokeStats: '#poke-stats',
         lblPokeHP: '#live-hp',
-        divPokeHPBar: '#health'
+        divPokeHPBar: '#health',
+        fntTopBtn: '#arrows-up',
+        fntBottomBtn: '#arrows-down'
     }
 
     return{
@@ -66,7 +68,9 @@ const UIController = (function(){
                 pokeHeight: document.querySelector(DOMElements.lblPokeHeight),
                 pokeStats: document.querySelector(DOMElements.divPokeStats),
                 pokeHPText: document.querySelector(DOMElements.lblPokeHP),
-                pokeHPBar: document.querySelector(DOMElements.lblPokeHPBar)
+                pokeHPBar: document.querySelector(DOMElements.lblPokeHPBar),
+                topTurn: document.querySelector(DOMElements.fntTopBtn),
+                bottomTurn: document.querySelector(DOMElements.fntBottomBtn)
             }
         },
         addToPokeList(pokemon){
@@ -81,8 +85,8 @@ const UIController = (function(){
             const html = `<a> ${pokeType} </a>`;
             document.querySelector(DOMElements.divPokeTypes).insertAdjacentHTML('beforeend',html)
         },
-        loadPokePicture(pokemon){
-            document.querySelector(DOMElements.imgPokemon).src = pokemon.sprites.front_default;
+        loadPokePicture(pokePic){
+            document.querySelector(DOMElements.imgPokemon).src = pokePic;
         },
         loadPokeID(pokemon){
             document.querySelector(DOMElements.lblPokeName).textContent = pokemon.name;
@@ -108,7 +112,12 @@ const UIController = (function(){
         loadPokeHP(pokemon){
             const randHP = Math.floor(Math.random() * 100) + 1;
             document.querySelector(DOMElements.lblPokeHP).textContent = "HP " + randHP;
-            document.querySelector(DOMElements.divPokeHPBar).style.width = randHP+"%";
+
+            const bar = document.querySelector(DOMElements.divPokeHPBar);
+            bar.style.width = randHP+"%";
+
+            if(randHP < 25){ bar.style.backgroundColor = "red";}
+            else if( randHP < 50){bar.style.backgroundColor = "yellow"}
 
         },
         clearPokeStats(){
@@ -141,13 +150,20 @@ const APPController = (function(APICtrl,UICtrl){
 
         const DOMInputs = UICtrl.inputFields();
 
+        let images = [];
+
         DOMInputs.pokeList.addEventListener('change', () =>{
             pokeEP = DOMInputs.pokeList.options[DOMInputs.pokeList.selectedIndex].value
             const pokePromise = APICtrl.pokeFetch(pokeEP);
             pokePromise.then((pokemon) =>{
+
                 UICtrl.clearPokeTypes();
                 pokemon.types.forEach(typeObj => UICtrl.addToPokeTypes(typeObj.type.name));
-                UICtrl.loadPokePicture(pokemon);
+
+                images[0] = pokemon.sprites.front_default
+                images[1] = pokemon.sprites.back_default
+                UICtrl.loadPokePicture(images[0]);
+
                 UICtrl.loadPokeID(pokemon);
 
                 const speciesEP = pokemon.species.url;
@@ -161,7 +177,16 @@ const APPController = (function(APICtrl,UICtrl){
                 UICtrl.loadPokeHP(pokemon)
                 UICtrl.clearPokeStats();
                 UICtrl.loadPokeStats(pokemon);
+
             })
+        })
+
+        DOMInputs.topTurn.addEventListener('click',()=>{
+            UICtrl.loadPokePicture(images[1]);
+        })
+
+        DOMInputs.bottomTurn.addEventListener('click',()=>{
+            UICtrl.loadPokePicture(images[0]);
         })
 
     }

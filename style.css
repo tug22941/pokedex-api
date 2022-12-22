@@ -154,12 +154,21 @@ main :nth-child(2) .panel{
     background-color: black;
 }
 .arrows{
-    font-size:250%;
+    font-size: 50px;
     color:#3068b3;
     position: absolute;
-    top: 50%;
-    right:0;
+    padding:5px;
 }
+#arrows-up{
+    left:50;
+    top:0;
+}
+#arrows-down{
+    left:50;
+    bottom:0;
+}
+
+
 .info{
     height:15%;
     width: 100%;
@@ -280,8 +289,9 @@ main :nth-child(2) .panel > .bottom{
 #health{
     width: 0%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: #9BCC50;
+    border: 1px solid black
 }
 
 #poke-stats{
